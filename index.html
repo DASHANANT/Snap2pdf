@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snap2PDF - Image to PDF Converter</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('serviceWorker.js');
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>📸 Snap2PDF</h1>
+    <hr>
+    <p class="upload-tip">📤 Click or Tap to Upload Image ↓</p>
+    <div class="arrow-down"></div>
+    <input type="file" id="imageInput" accept="image/*" />
+    <div class="buttons">
+      <button id="viewBtn" disabled>View Image</button>
+      <button id="filterBtn" disabled>Apply Document Filter</button>
+      <button id="convertBtn" disabled>Convert to PDF</button>
+      <button id="downloadBtn" disabled>Download PDF</button>
+    </div>
+    <div id="previewContainer"></div>
+    <hr>
+    <div class="disclaimer">
+      ⚠️ <b>Privacy Notice:</b> We care about your privacy. No image is uploaded or saved. <br>
+      Please <b>do not refresh</b> this page during conversion. <br>
+      We earn through ads, not by selling your data.
+    </div>
+    <hr>
+    <div class="footer">
+      <button onclick="navigator.share ? navigator.share({ title: 'Snap2PDF', url: window.location.href }) : alert('Copy link to share: ' + window.location.href);">
+        📤 Share this tool
+      </button>
+      <p>✨ Share this with your friends, help us grow<br>
+         Convert images fast — now you’re in the flow! 🎶</p>
+      <p>© 2025 Snap2PDF</p>
+    </div>
+    <div id="adblockNotice" class="hidden">🚫 Ad Blocker Detected<br>🙏 We’re students building free tools. Please disable AdBlock to support us.</div>
+  </div>
+  <script src="https://unpkg.com/pdf-lib"></script>
+  <script src="script.js"></script>
+</body>
+</html>
